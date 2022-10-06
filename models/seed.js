@@ -11,11 +11,11 @@ const db = mongoose.connection
 
 db.on('open', () => {
     const startJackets = [
-        { name: "Alpha SV", color: "24k", waterProof: true },
-        { name: "Beta SV", color: "kingfisher", waterProof: true },
-        { name: "Gamma MX", color: "black", waterProof: false },
-        { name: "Beta Jacket", color: "offlime", waterProof: true },
-        { name: "Atom LT", color: "timelapse", waterProof: false },
+        { name: "Alpha SV", color: "24k", waterProof: true, quantity: 2 },
+        { name: "Beta SV", color: "kingfisher", waterProof: true, quantity: 8 },
+        { name: "Gamma MX", color: "black", waterProof: false, quantity: 1 },
+        { name: "Beta Jacket", color: "offlime", waterProof: true, quantity: 5 },
+        { name: "Atom LT", color: "timelapse", waterProof: false, quantity: 7 },
     ]
 
     Jacket.deleteMany({})
@@ -24,7 +24,7 @@ db.on('open', () => {
 
             Jacket.create(startJackets)
                 .then(data => {
-                    console.log('here are the newly created fruits', data)
+                    console.log('here are the newly created jackets', data)
                     db.close()
                 })
                 .catch(error => {

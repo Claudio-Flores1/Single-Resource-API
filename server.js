@@ -3,6 +3,7 @@ const express = require("express")
 const path = require("path") 
 const JacketRouter = require('./controllers/jacketControllers')
 const UserRouter = require('./controllers/userControllers')
+const CommentRouter = require('./controllers/commentControllers')
 const middleware = require('./utils/middleware')
 
 /////////////////////////////////////////////
@@ -19,7 +20,8 @@ app.get("/", (req, res) => {
     res.send("Your server is running, better go out and catch it")
 })
 
-app.use('/fruits', JacketRouter)
+app.use('/jackets', JacketRouter)
+app.use('/comments', CommentRouter)
 app.use('/users', UserRouter)
 
 /////////////////////////////////////////////

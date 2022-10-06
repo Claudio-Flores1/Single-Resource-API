@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require("express")
-const Jacket = require("../models/Jacket")
+const Jacket = require("../models/jacket")
 
 /////////////////////////////////////////
 // Create Route
@@ -20,6 +20,20 @@ router.get("/", (req, res) => {
             res.json({ jackets: jackets })
         })
         .catch(err => console.log(err))
+})
+
+// GET request
+// only fruits owned by logged in user
+// we're going to build another route, that is owner specific, to list all the fruits owned by a certain(logged in) user
+router.get('/mine', (req, res) => {
+    // find the fruits, by ownership
+    Jacket.find({ owner: req.session.userId })
+    // then display the fruits
+        .then(jackets => {
+            res.status(200).json({ jackets: jackets })
+        })
+    // or throw an error if there is one
+        .catch(error => res.json(error))
 })
 
 // POST request
