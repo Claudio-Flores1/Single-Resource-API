@@ -2,21 +2,21 @@
 {% block content %}
     <div class="container-md">
         <article>
-            <h2>{{fruit.name}}</h2>
+            <h2>{{jacket.name}}</h2>
             <h4>
-                {% if fruit.readyToEat %}
-                    Ripe and Ready
+                {% if jacket.waterProof %}
+                    GoreTex
                 {% else %}
-                    Not Ripe, Not Ready
+                    Not Waterproof
                 {% endif %}
             </h4>
-            <h4>The color of this fruit is: {{fruit.color}}</h4>
-            {% if fruit.owner == userId %}
+            <h4>The color of this Jacket is: {{jacket.color}}</h4>
+            {% if jacket.owner == userId %}
                 <div class="btn-group">
                     {%- comment -%} first button will send us to the edit page {%- endcomment -%}
-                    <a class="btn btn-primary" href="/fruits/edit/{{fruit.id}}">Edit</a>
+                    <a class="btn btn-primary" href="/jackets/edit/{{jacket.id}}">Edit</a>
                     {%- comment -%} the second button(which will actually be a form, will send a DELETE request) {%- endcomment -%}
-                    <form action="/fruits/{{fruit.id}}?_method=DELETE" method="POST">
+                    <form action="/jackets/{{jacket.id}}?_method=DELETE" method="POST">
                         <input class="btn btn-danger" type="submit" value="Delete">
                     </form>
                 </div>

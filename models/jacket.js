@@ -15,7 +15,7 @@ const { Schema, model } = mongoose
 const jacketSchema = new Schema({
     name: String,
     color: String,
-    waterproof: Boolean,
+    waterProof: Boolean,
     quantity: Number,
     owner: {
         type: Schema.Types.ObjectId,

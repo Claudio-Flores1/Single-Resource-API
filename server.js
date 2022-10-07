@@ -9,7 +9,7 @@ const middleware = require('./utils/middleware')
 /////////////////////////////////////////////
 // Create our Express Application Object
 /////////////////////////////////////////////
-const app = express()
+const app = require('liquid-express-views')(express())
 
 middleware(app)
 
@@ -17,7 +17,7 @@ middleware(app)
 // Home Route
 /////////////////////////////////////////////
 app.get("/", (req, res) => {
-    res.send("Your server is running, better go out and catch it")
+    res.render('index.liquid')
 })
 
 app.use('/jackets', JacketRouter)

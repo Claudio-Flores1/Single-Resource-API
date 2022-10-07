@@ -13,6 +13,13 @@ const router = express.Router()
 /////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
+
+// GET route for sign up
+// renders a page with a signup form
+router.get('/signup', (req, res) => {
+    res.render('users/signup')
+})
+
 router.post('/signup', async (req, res) => {
     console.log('this is our initial req.body', req.body)
     req.body.password = await bcrypt.hash(
@@ -31,6 +38,12 @@ router.post('/signup', async (req, res) => {
             res.json(err)
         })
 })
+
+
+router.get('/login', (req, res) => {
+    res.render('users/login')
+})
+
 
 router.post('/login', async (req, res) => {
 
@@ -63,6 +76,15 @@ router.post('/login', async (req, res) => {
             res.json(err)
         })
 })
+
+router.get('/logout', (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+
+    res.render('users/logout', { username, loggedIn, userId})
+})
+
 
 router.delete('/logout', (req, res) => {
     req.session.destroy(err => {

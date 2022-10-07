@@ -2,34 +2,41 @@
 {% block content %}
 
     <div class="container-sm">
-        <form action="/fruits" method="POST">
+        <form action="/jackets" method="POST">
             <fieldset>
-                <legend>Create New Fruit</legend>
+                <legend>Create A New Jacket</legend>
                 <label class="form-label">Name: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="name"
-                    placeholder="enter the name of the fruit"
+                    placeholder="product name"
                 >
                 <label class="form-label">Color: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="color"
-                    placeholder="what color is the fruit?"
+                    placeholder="product color"
                 >
-                <label class="form-label">Ready To Eat: </label>
+                  <label class="form-label">Amount: </label>
+                <input
+                     class="form-control"
+                    type="text"
+                    amount= number
+                    placeholder="amount"
+                >
+                <label class="form-label">GoreTex: </label>
                 <input
                     class="form-check-input"
                     type="checkbox"
-                    name="readyToEat"
+                    name="waterProof"
                 >
             </fieldset>
             <input
                 class="btn btn-success"
                 type="submit"
-                value="Create New Fruit"
+                value="Create A New Jacket"
             >
         </form>
     </div>

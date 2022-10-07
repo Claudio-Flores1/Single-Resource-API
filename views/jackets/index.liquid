@@ -1,0 +1,27 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div>
+        <h2 class="display-6">All Jackets</h2>
+        <div class="row">
+            {% for jacket in jackets %}
+                <div class="card">
+                    <h5 class="card-header">{{jacket.name}}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {% if jacket.waterProof %}
+                                Waterproof
+                            {% else %}
+                                Not Waterproof
+                            {% endif %}
+                        </h5>
+                        <p class="card-text">The color of this {{jacket.name}} is {{jacket.color}}</p>
+                        <p class="card-text">There are {{jacket.quantity}} jacket(s)</p>
+                        <a class="btn btn-info" href="/jackets/{{jacket.id}}">
+                            View {{jacket.name}}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
