@@ -11,7 +11,7 @@ const commentSchema = require('./comment')
 
 const { Schema, model } = mongoose
 
-// fruits schema
+// jackets schema
 const jacketSchema = new Schema({
     name: String,
     color: String,

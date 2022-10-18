@@ -1,9 +1,9 @@
-body {
-    background: url('Images/Mountains.jpg')
-}
+/* body {
+    background: url('../Images/Mountains.jpg');
+} */
 
 .card {
     margin: 5px;
-    width: 18rem;
+    /* width: 18rem; */
     /* background-color: blanchedalmond; */
 }

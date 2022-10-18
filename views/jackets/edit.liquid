@@ -2,41 +2,39 @@
 {% block content %}
 
     <div class="container-sm">
-        <form action="/jackets" method="POST">
+        <form action="/jackets/{{jacket.id}}?_method=PUT" method="POST">
             <fieldset>
-                <legend>Create A New Jacket</legend>
+                <legend>Edit {{jacket.name}}</legend>
                 <label class="form-label">Name: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="name"
-                    placeholder="product name"
+                    placeholder="enter the Jacket name"
+                    value="{{ jacket.name }}"
                 >
                 <label class="form-label">Color: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="color"
-                    placeholder="product color"
+                    placeholder="what color is the jacket?"
+                    value="{{ jacket.color }}"
                 >
-                  <label class="form-label">Amount: </label>
-                <input
-                    class="form-control"
-                    type="number"
-                    name="amount"
-                    placeholder="amount"
-                >
-                <label class="form-label">GoreTex: </label>
+                <label class="form-label">waterProof: </label>
                 <input
                     class="form-check-input"
                     type="checkbox"
                     name="waterProof"
+                    {% if jacket.waterProof %}
+                        checked
+                    {% endif %}
                 >
             </fieldset>
             <input
                 class="btn btn-success"
                 type="submit"
-                value="Create A New Jacket"
+                value="Edit {{jacket.name}}"
             >
         </form>
     </div>

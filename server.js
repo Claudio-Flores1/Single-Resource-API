@@ -17,12 +17,27 @@ middleware(app)
 // Home Route
 /////////////////////////////////////////////
 app.get("/", (req, res) => {
-    res.render('index.liquid')
+    if (req.session.loggedIn) {
+        res.redirect('/jackets')
+    } else {
+        res.render('index.liquid')
+    }
 })
 
 app.use('/jackets', JacketRouter)
 app.use('/comments', CommentRouter)
 app.use('/users', UserRouter)
+
+app.get('/error', (req, res) => {
+    const { username, loggedIn, userId } = req.session
+    const error = req.query.error || 'This page does not exist'
+
+    res.render('error.liquid', { error, username, loggedIn, userId })
+})
+
+app.all('*', (req, res) => {
+    res.redirect('/error')
+})
 
 /////////////////////////////////////////////
 // Server Listener
